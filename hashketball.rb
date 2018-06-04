@@ -172,5 +172,14 @@ def player_numbers(team)
   jersey_numbers
 end 
 
-
+def player_stats(player)
+    game_hash.each do |team, data|   #team = #home, away 
+    all_stats = data.fetch(:players)  #each player w info
+      all_stats.each do |player_name, stats|
+        if player == player_name 
+          return stats    #all the hash info on the player
+        end
+      end 
+  end 
+end 
 
