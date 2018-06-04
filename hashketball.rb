@@ -183,3 +183,14 @@ def player_stats(player)
   end 
 end 
 
+def big_shoe_rebounds
+    shoe_sizes = []
+    game_hash.each do |teams, data|   #team = #home, away 
+      data.values[2].each do |player, info|   #iterating thru player info
+        #SORT BY info.values[1] stand for player shoes size, last is the biggest
+        player_w_biggest_shoes = data.values[2].sort_by{|playery, info| info.values[1] }.last
+        return player_w_biggest_shoes[1].values[3]   #Array[1] then hash, so values[3] for Rebounds 
+    end 
+  end 
+end 
+
